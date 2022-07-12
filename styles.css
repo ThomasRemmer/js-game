@@ -27,8 +27,20 @@ body {
 
 .viewport__playerHand {
   border: 2px blue solid;
-  height: 40%;
+  height: 30%;
   width: auto;
   display: flex;
   justify-content: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.button {
+  height: 10%;
 }/*# sourceMappingURL=styles.css.map */
