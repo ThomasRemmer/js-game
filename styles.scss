@@ -1,0 +1,35 @@
+@import "./reset";
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.viewport {
+    width: 95%;
+    height: 95%;
+    border: 5px black solid;
+    display: flex;
+    flex-direction: column;
+}
+.viewport__playspace {
+    border: 2px black solid;
+    height: 60%;
+    width: auto;
+}
+.viewport__playerHand {
+    border: 2px blue solid;
+    height: 40%;
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+> .card {
+    display: flex;
+    flex-direction: column;
+    background-color: $color-foreground;
+    max-width: 200px;
+    border-radius: 3px;
+    overflow: hidden;
+}
