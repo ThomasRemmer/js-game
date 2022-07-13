@@ -63,15 +63,108 @@ const battleStart = (pS, aS) => {
     playerHealthContainer.innerHTML = `<p>Player Health: ${pS[4]}</p>`
     enemyHealthContainer.innerHTML = `<p>Enemy Health: ${aS[4]}</p>`
     if (pS[5] >= aS[5]) {
-        console.log("player is faster")
         playerTurn = true
+        normalActionButton.innerText = "Normal Attack"
+        specialActionButton.innerText = "Special Attack"
     }
     else {
-        console.log("enemy is faster")
         playerTurn = false
+        normalActionButton.innerText = "Normal Defence"
+        specialActionButton.innerText = "Special Defence"
     }
 
 }
+
+const aiAction = () => {
+    return Math.floor(Math.random() * 2);
+}
+
+const normalAction = () => {
+
+    let damage = 0
+    let aiMove = aiAction()
+    if (playerTurn == true) {
+        if (aiMove == 0) {
+            damage = playerStats[0] - aiStats[1]
+            aiStats[4] -= damage
+            enemyHealthContainer.innerHTML = `<p>Enemy Health: ${aiStats[4]}</p>`
+            playerTurn = false
+            normalActionButton.innerText = "Normal Defence"
+            specialActionButton.innerText = "Special Defence"
+
+        }
+        else {
+            aiStats[4] -= playerStats[0]
+            enemyHealthContainer.innerHTML = `<p>Enemy Health: ${aiStats[4]}</p>`
+            playerTurn = false
+            normalActionButton.innerText = "Normal Defence"
+            specialActionButton.innerText = "Special Defence"
+
+        }
+    }
+    else {
+        if (aiMove == 1) {
+            damage = aiStats[0] - playerStats[1]
+            playerStats[4] -= damage
+            playerHealthContainer.innerHTML = `<p>Enemy Health: ${playerStats[4]}</p>`
+            playerTurn = true
+            normalActionButton.innerText = "Normal Attack"
+            specialActionButton.innerText = "Special Attack"
+        }
+        else {
+            playerStats[4] -= aiStats[0]
+            playerTurn = true
+            playerHealthContainer.innerHTML = `<p>Enemy Health: ${playerStats[4]}</p>`
+            normalActionButton.innerText = "Normal Attack"
+            specialActionButton.innerText = "Special Attack"
+        }
+    }
+
+}
+
+const specialAction = () => {
+
+    let damage = 0
+    let aiMove = aiAction()
+    if (playerTurn == true) {
+        if (aiMove == 0) {
+            damage = playerStats[2] - aiStats[3]
+            aiStats[4] -= damage
+            enemyHealthContainer.innerHTML = `<p>Enemy Health: ${aiStats[4]}</p>`
+            playerTurn = false
+            normalActionButton.innerText = "Normal Defence"
+            specialActionButton.innerText = "Special Defence"
+
+        }
+        else {
+            aiStats[4] -= playerStats[2]
+            enemyHealthContainer.innerHTML = `<p>Enemy Health: ${aiStats[4]}</p>`
+            playerTurn = false
+            normalActionButton.innerText = "Normal Defence"
+            specialActionButton.innerText = "Special Defence"
+
+        }
+    }
+    else {
+        if (aiMove == 1) {
+            damage = aiStats[2] - playerStats[3]
+            playerStats[4] -= damage
+            playerHealthContainer.innerHTML = `<p>Enemy Health: ${playerStats[4]}</p>`
+            playerTurn = true
+            normalActionButton.innerText = "Normal Attack"
+            specialActionButton.innerText = "Special Attack"
+        }
+        else {
+            playerStats[4] -= aiStats[2]
+            playerTurn = true
+            playerHealthContainer.innerHTML = `<p>Enemy Health: ${playerStats[4]}</p>`
+            normalActionButton.innerText = "Normal Attack"
+            specialActionButton.innerText = "Special Attack"
+        }
+    }
+
+}
+
 //calls functions to draw both players cards and passes both stat arrays to function that starts the battle
 let nextRound = () => {
     playerDrawCard()
@@ -86,8 +179,8 @@ let gameStart = () => {
 }
 
 
-
-
+specialActionButton.addEventListener("click", specialAction)
+normalActionButton.addEventListener("click", normalAction)
 start.addEventListener("click", gameStart)
 button.addEventListener("click", nextRound)
 

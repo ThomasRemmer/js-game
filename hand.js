@@ -2,10 +2,10 @@ export const enemyHand = [
     {
         id: 0,
         name: "Rat",
-        attack: 1,
-        speicalAttack: 3,
-        defence: 1,
-        specialDefence: 4,
+        attack: 10,
+        speicalAttack: 10,
+        defence: 5,
+        specialDefence: 5,
         speed: 5,
         health: 30,
         sprite:
@@ -14,10 +14,10 @@ export const enemyHand = [
       {
         id: 1,
         name: "Lion",
-        attack: 7,
-        speicalAttack: 5,
-        defence: 2,
-        specialDefence: 2,
+        attack: 10,
+        speicalAttack: 10,
+        defence: 5,
+        specialDefence: 5,
         speed: 3,
         health: 30,
         sprite:
@@ -26,8 +26,8 @@ export const enemyHand = [
       {
         id: 2,
         name: "Rock",
-        attack: 1,
-        speicalAttack: 1,
+        attack: 10,
+        speicalAttack: 10,
         defence: 5,
         specialDefence: 5,
         speed: 1,
@@ -38,10 +38,10 @@ export const enemyHand = [
       {
         id: 3,
         name: "Rhino",
-        attack: 5,
-        speicalAttack: 7,
-        defence: 2,
-        specialDefence: 3,
+        attack: 10,
+        speicalAttack: 10,
+        defence: 5,
+        specialDefence: 5,
         speed: 3,
         health: 30,
         sprite:
