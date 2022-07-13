@@ -16,13 +16,12 @@ const specialActionButton = document.querySelector("#specialAction")
 let playerStats = []
 let aiStats = []
 let playerTurn = true;
-
+// Random number between 0 and deck length
 let randCard = () => {
     let randId = Math.floor(Math.random() * deck.length);
-
     return randId
 }
-
+// draws player's monster from pool of monsters, saving their monster's stats into an array
 let playerDrawCard = () => {
     let cardId = randCard();
 
@@ -40,7 +39,7 @@ let playerDrawCard = () => {
     })
 
 }
-
+// draws AI's monster from pool of monsters, saving their monster's stats into an array
 let enemyDrawCard = () => {
     let cardId = randCard();
 
@@ -58,7 +57,7 @@ let enemyDrawCard = () => {
     })
 
 }
-
+// displays player's health on the webpage and works out who goes first 
 const battleStart = (pS, aS) => {
 
     playerHealthContainer.innerHTML = `<p>Player Health: ${pS[4]}</p>`
@@ -73,13 +72,13 @@ const battleStart = (pS, aS) => {
     }
 
 }
-
+//calls functions to draw both players cards and passes both stat arrays to function that starts the battle
 let nextRound = () => {
     playerDrawCard()
     enemyDrawCard()
     battleStart(playerStats, aiStats)
 }
-
+// removes start button and starts the first round
 let gameStart = () => {
     button.innerText = "Restart"
     start.remove()
