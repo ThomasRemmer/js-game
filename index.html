@@ -9,11 +9,19 @@
 </head>
 <body>
     <div class="viewport">
+        <div class = "viewport__Ui">
+            <div class = "viewport__health" id="playerhealth"></div>
+            <div class = "viewport__health" id="enemyhealth"></div>
+        </div>
         <div class ="viewport__playspace"></div>
         <div class ="viewport__playerHand">
-            <button class="viewport__start">start game</button>
+            <div class="viewport__playerMonsterContainer"><button class="viewport__button" id="startButton">start game</button></div>
+            <div class="viewport__inputs">
+                <button class="viewport__button viewport__button--halfButton" id="normalAction"></button>
+                <button class="viewport__button viewport__button--halfButton" id="specialAction"></button>
+            </div>
         </div>
-        <button class="viewport__button"></button>
+        <button class="viewport__button viewport__button--shortButton" id="restartButton"></button>
     </div>
 
 

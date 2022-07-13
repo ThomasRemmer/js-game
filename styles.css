@@ -21,16 +21,29 @@ body {
 
 .viewport__playspace {
   border: 2px black solid;
-  height: 60%;
+  height: 40%;
   width: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .viewport__playerHand {
   border: 2px blue solid;
-  height: 30%;
+  height: 40%;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.viewport__Ui {
+  border: 2px blue solid;
+  height: 10%;
   width: auto;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .card {
@@ -39,8 +52,41 @@ body {
   max-width: 200px;
   border-radius: 3px;
   overflow: hidden;
+  height: 100%;
 }
 
-.button {
+.viewport__button {
+  height: 100%;
+  width: 100%;
+}
+.viewport__button--halfButton {
+  width: 50%;
+}
+.viewport__button--shortButton {
   height: 10%;
+}
+
+.viewport__inputs {
+  height: 30%;
+  width: 100%;
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+}
+
+.viewport__playerMonsterContainer {
+  height: 70%;
+  width: 100%;
+  border: 1px green solid;
+  display: flex;
+  justify-content: center;
+}
+
+.viewport__health {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
 }/*# sourceMappingURL=styles.css.map */
