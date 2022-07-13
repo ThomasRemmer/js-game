@@ -1,6 +1,6 @@
 
 import deck from "./deck.js"
-import enemyHand from "./hand.js"
+import enemyHand from "./enemyDeck.js"
 
 const playerContainer = document.querySelector(".viewport__playerMonsterContainer")
 const enemyContainer = document.querySelector(".viewport__playspace")
