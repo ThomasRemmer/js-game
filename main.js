@@ -79,6 +79,17 @@ const aiAction = () => {
     return Math.floor(Math.random() * 2);
 }
 
+const checkWin = () => {
+    if (playerStats[4] <= 0) {
+        alert("you lose :(")
+        nextRound()
+    }
+    if (aiStats[4] <= 0) {
+        alert("you win :)")
+        nextRound()
+    }
+}
+
 const normalAction = () => {
 
     let damage = 0
@@ -119,7 +130,7 @@ const normalAction = () => {
             specialActionButton.innerText = "Special Attack"
         }
     }
-
+    checkWin()
 }
 
 const specialAction = () => {
@@ -162,7 +173,7 @@ const specialAction = () => {
             specialActionButton.innerText = "Special Attack"
         }
     }
-
+    checkWin()
 }
 
 //calls functions to draw both players cards and passes both stat arrays to function that starts the battle
