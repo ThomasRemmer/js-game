@@ -48,7 +48,7 @@ let enemyDrawCard = () => {
         enemyContainer.innerHTML = `<div class="card">
         <img src="${card.sprite}" class="card__image">
         <div class="card__content">
-        <h2 class="card__heading">${card.name.charAt(0).toUpperCase()}${card.name.slice(1)}</h2>
+        <h2 class="card__heading">Enemy ${card.name.charAt(0).toUpperCase()}${card.name.slice(1)}</h2>
         <p class="card__text"> Attack:${card.attack}  Defence:${card.defence}</p>
         <p class="card__text"> S Attack:${card.speicalAttack} S Defence:${card.specialDefence}</p>
         </div>
@@ -102,6 +102,7 @@ const normalAction = () => {
             playerTurn = false
             normalActionButton.innerText = "Normal Defence"
             specialActionButton.innerText = "Special Defence"
+            alert(`Your attack was blocked, only dealing ${damage} damage`)
 
         }
         else {
@@ -110,24 +111,26 @@ const normalAction = () => {
             playerTurn = false
             normalActionButton.innerText = "Normal Defence"
             specialActionButton.innerText = "Special Defence"
-
+            alert(`Your attack was not blocked, dealing ${playerStats[0]} damage`)
         }
     }
     else {
         if (aiMove == 1) {
             damage = aiStats[0] - playerStats[1]
             playerStats[4] -= damage
-            playerHealthContainer.innerHTML = `<p>Enemy Health: ${playerStats[4]}</p>`
+            playerHealthContainer.innerHTML = `<p>Player Health: ${playerStats[4]}</p>`
             playerTurn = true
             normalActionButton.innerText = "Normal Attack"
             specialActionButton.innerText = "Special Attack"
+            alert(`You blocked the attack, only taking ${damage} damage`)
         }
         else {
             playerStats[4] -= aiStats[0]
             playerTurn = true
-            playerHealthContainer.innerHTML = `<p>Enemy Health: ${playerStats[4]}</p>`
+            playerHealthContainer.innerHTML = `<p>Player Health: ${playerStats[4]}</p>`
             normalActionButton.innerText = "Normal Attack"
             specialActionButton.innerText = "Special Attack"
+            alert(`You failed to block the attack, taking ${aiStats[0]} damage`)
         }
     }
     checkWin()
@@ -145,7 +148,7 @@ const specialAction = () => {
             playerTurn = false
             normalActionButton.innerText = "Normal Defence"
             specialActionButton.innerText = "Special Defence"
-
+            alert(`Your attack was blocked, only dealing ${damage} damage`)
         }
         else {
             aiStats[4] -= playerStats[2]
@@ -153,6 +156,7 @@ const specialAction = () => {
             playerTurn = false
             normalActionButton.innerText = "Normal Defence"
             specialActionButton.innerText = "Special Defence"
+            alert(`Your attack was not blocked, dealing ${playerStats[2]} damage`)
 
         }
     }
@@ -160,17 +164,19 @@ const specialAction = () => {
         if (aiMove == 1) {
             damage = aiStats[2] - playerStats[3]
             playerStats[4] -= damage
-            playerHealthContainer.innerHTML = `<p>Enemy Health: ${playerStats[4]}</p>`
+            playerHealthContainer.innerHTML = `<p>Player Health: ${playerStats[4]}</p>`
             playerTurn = true
             normalActionButton.innerText = "Normal Attack"
             specialActionButton.innerText = "Special Attack"
+            alert(`You blocked the attack, only taking ${damage} damage`)
         }
         else {
             playerStats[4] -= aiStats[2]
             playerTurn = true
-            playerHealthContainer.innerHTML = `<p>Enemy Health: ${playerStats[4]}</p>`
+            playerHealthContainer.innerHTML = `<p>Player Health: ${playerStats[4]}</p>`
             normalActionButton.innerText = "Normal Attack"
             specialActionButton.innerText = "Special Attack"
+            alert(`You failed to block the attack, taking ${aiStats[2]} damage`)
         }
     }
     checkWin()
